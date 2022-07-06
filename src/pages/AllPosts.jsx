@@ -16,7 +16,7 @@ const AllPosts = () => {
 
     if(!posts) {
         return (
-            <div className='w-100 h-100 d-flex justify-content-center align-items-center'>
+            <div className='w-100 loading d-flex justify-content-center align-items-center'>
                 <Icon icon="line-md:loading-loop" style={{color: "red", fontSize: "96px"}}/>
             </div>
         )

@@ -54,6 +54,10 @@ h1 {
   background-size: cover;
 }
 
+.loading {
+  height: 600px;
+}
+
 .bg-big {
   background-image: url("./assets//bg_big.png");
   background-repeat: repeat-y;
