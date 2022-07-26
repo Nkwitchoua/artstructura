@@ -55,7 +55,7 @@ const AllContextProvider = ({children}) => {
 
     const GetAllVideos = async () => {
         const videosList = [];
-        await axios.get("http://51.250.39.117:8000/videos/6")
+        await axios.get("https://toyyotbackend.ru/videos/6")
         .then(res => res.data.videos.forEach(video => videosList.push(video)))
         .catch(err => console.log(err))
         dispatch({
@@ -67,11 +67,12 @@ const AllContextProvider = ({children}) => {
     }
 
     const GetVideo = async (id) => {
-        await axios.get(`http://51.250.39.117:8000/videos/id/${id}`)
+        await axios.get(`https://toyyotbackend.ru/videos/id/${id}`)
         .then(res => {
+            console.log(res.data)
             dispatch({
                 type: "GET_VIDEO",
-                payload: res.data
+                payload: res.data.video
             })
         })
         .catch(err => console.log(err))
@@ -81,7 +82,7 @@ const AllContextProvider = ({children}) => {
         let newLimit = parseInt(lim) + 6;
         newLimit = newLimit.toString();
         const videosList = [];
-        await axios.get(`http://51.250.39.117:8000/videos/${newLimit}`)
+        await axios.get(`https://toyyotbackend.ru/videos/${newLimit}`)
         .then(res => res.data.videos.forEach(video => videosList.push(video)))
         .catch(err => console.log(err))
         dispatch({
@@ -102,7 +103,7 @@ const AllContextProvider = ({children}) => {
         let newLimit = parseInt(lim) + 6;
         newLimit = newLimit.toString();
         const postsList = [];
-        await axios.get(`http://51.250.39.117:8000/websitePosts/${newLimit}`)
+        await axios.get(`https://toyyotbackend.ru/websitePosts/${newLimit}`)
         .then(res => res.data.posts.forEach(post => postsList.push(post)))
         .catch(err => console.log(err))
         dispatch({
@@ -121,7 +122,7 @@ const AllContextProvider = ({children}) => {
 
     const GetAllPosts = async () => {
         const postsList = [];
-        await axios.get("http://51.250.39.117:8000/websitePosts/6")
+        await axios.get("https://toyyotbackend.ru/websitePosts/6")
         .then(res => {
             res.data.posts.forEach(post => postsList.push(post))
         })
@@ -135,8 +136,9 @@ const AllContextProvider = ({children}) => {
     }
 
     const GetPost = async (id) => {
-        await axios.get(`http://51.250.39.117:8000/websitePosts/id/${id}`)
+        await axios.get(`https://toyyotbackend.ru/websitePosts/id/${id}`)
         .then(res => {
+            
             dispatch({
                 type: "GET_POST",
                 payload: res.data
